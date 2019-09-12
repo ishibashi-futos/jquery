@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Progressbarウィジェット</title>
+<link type="text/css" rel="stylesheet"
+  href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+<script type="text/javascript"
+  src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"
+  src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  var max = 1000
+  // 何度も使うので、変数に退避
+  var p = $('#progress');
+  var l = $('#loading');
+  p.progressbar({
+    value: 0,
+    // 1値の変更をラベルにも反映
+    change: function() {
+      l.text(p.progressbar('value') + '％');
+    },
+    // 2完了時にダイアログボックスを表示
+    complete: function() {
+      window.alert('処理を完了しました！');
+    },
+    max: max
+  });
+  var id = setInterval(function() {
+    var v = p.progressbar('value');
+    p.progressbar('value', ++v);
+    if (v >= max) { clearInterval(id) }
+  }, 100);
+});
+</script>
+</head>
+<body>
+<!--1プログレスバーの表示領域 -->
+<div id="progress"></div>
+</body>
+</html>

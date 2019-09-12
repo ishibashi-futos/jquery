@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+<div id="div1" style="display:none;">
+<p>メッセージ</p>
+</div>
+<input type="button" id="button1" value="modal" />
+<input type="button" id="button2" value="overlay(using modal)" />
+<input type="button" id="button3" value="iframe" />
+<input type="button" id="button4" value="overlay" />
+
+<script>
+var modal = null
+$(function() {
+	$("#button1").click(function() {
+		$("#div1").dialog({
+			modal:true, //モーダル表示
+			title:"テストダイアログ1", //タイトル,
+			maxHeight: 0,
+		});
+	});
+	$("#button2").click(function() {
+		var modal = $("<div></div>").dialog({autoOpen: false})
+		modal.dialog("option", {
+			modal: true,
+			closeOnEscape: false,
+		})
+		
+		modal.dialog("open")
+		$(".ui-dialog*").hide()
+		setTimeout(() => {
+			modal.dialog("destroy")
+		}, 3000)
+	});
+	$("#button3").click(function() {
+		modal = $('<iframe src="./progress.html" id="dialog1"></iframe>').dialog({autoOpen: false})
+		modal.dialog("option", {
+			modal: true,
+			closeOnEscape: false,
+			open: function () {
+				$(this).css('width', '100%')
+			}
+		})
+		modal.dialog("open")
+	})
+	$("#button4").click(function () {
+		var docHeight = $(document).height();
+		$("body").append("<div id='overlay'></div>")
+		$("#overlay").height(docHeight).css({
+			"background": "#e9e9e9",
+			"position": "absolute",
+			"top": 0,
+			"right": 0,
+			"bottom": 0,
+			"left": 0,
+			"opacity": 0.5,
+			"z-index": 5000
+		})
+		setTimeout(() => {
+			$("#overlay").fadeOut(5000, () => {
+				$("#overlay").remove()
+			})
+		}, 3000)
+	})
+});
+</script>
+</body>
+</html>
