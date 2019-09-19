@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html>
 <head>
 <meta charset="UTF-8" />
 <title>Progressbarウィジェット</title>
 <link rel="stylesheet" href="../lib/jquery/css/jquery-ui.css" />
 <script src="../lib/jquery/js/jquery.min.js"></script>
 <script src="../lib/jquery/js/jquery-ui.min.js"></script>
-<script type="text/javascript">
-$(function() {
-  var max = 1000
-  // 何度も使うので、変数に退避
-  var p = $('#progress');
-  var l = $('#loading');
-  p.progressbar({
-    value: 0,
-    // 1値の変更をラベルにも反映
-    change: function() {
-      l.text(p.progressbar('value') + '％');
-    },
-    // 2完了時にダイアログボックスを表示
-    complete: function() {
-      window.alert('処理を完了しました！');
-    },
-    max: max
-  });
-  var id = setInterval(function() {
-    var v = p.progressbar('value');
-    p.progressbar('value', ++v);
-    if (v >= max) { clearInterval(id) }
-  }, 100);
-});
-</script>
+<script src="../js/progress.js"></script>
+<style>
+#loading {
+  position: absolute;
+  left: 50%;
+}
+.box{
+  float: left;
+  margin: auto;
+}
+.boxContainer{
+  overflow: hidden;
+}
+</style>
 </head>
 <body>
+<div id="main_message">
+  進捗ダイアログに表示されるメッセージです
+</div>
 <!--1プログレスバーの表示領域 -->
-<div id="progress"></div>
+<div id="progress">
+  <div id="loading"></div>
+</div>
+<div id="sub_message" class="boxContainer">
+  <div id="message_icon" class="box">
+    <span class="ui-icon ui-icon-info"></span>
+  </div class="box">
+  <div id="message">message</div>
+</div>
 </body>
-</html>
