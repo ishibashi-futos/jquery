@@ -1,0 +1,23 @@
+{
+  "name": "jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishibashi-futos/jquery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishibashi-futos/jquery/issues"
+  },
+  "homepage": "https://github.com/ishibashi-futos/jquery#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
