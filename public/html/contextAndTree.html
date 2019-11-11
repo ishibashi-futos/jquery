@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../lib/jquery/css/jquery-ui.css" />
+<script src="../lib/jquery/js/jquery.min.js"></script>
+<script src="../lib/jquery/js/jquery-ui.min.js"></script>
+<!-- wijmo -->
+<link href="https://cdn.grapecity.com/wijmo/5.20183.550/styles/wijmo.min.css" rel="stylesheet"/>
+<!-- 
+    optionally use a custom theme instead of wijmo.min.css
+    <link href="https://cdn.grapecity.com/wijmo/5.20183.550/styles/themes/wijmo.theme.modern.min.css" rel="stylesheet"/>
+-->
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/wijmo.min.js"></script>
+
+
+
+<!-- Wijmoコントロール（オプションで、必要なコントロールを含みます） -->
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/wijmo.grid.min.js"></script>
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/wijmo.chart.min.js"></script>
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/wijmo.input.min.js"></script>
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/wijmo.gauge.min.js"></script>
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/wijmo.nav.min.js"></script>
+
+<!-- Wijmoのカスタムカルチャー（オプション、必要なカルチャーを含みます） -->
+<script src="https://cdn.grapecity.com/wijmo/5.20183.550/controls/cultures/wijmo.culture.ja.min.js "></script>
+
+</head>
+<body>
+    <div id="app">
+        <div id="first" style="background:#f0a0a0">
+                右クリックするとコンテキストメニューを表示します。
+                <div id="first-1" class="testItem1" style="border: solid #008080;">
+                    first-1を表示しています
+                    <p><input type="button" class="testItem1" value="testItem1-1ClassButton" /></p>
+                    <p><input type="button" class="testItem1" value="testItem1-2ClassButton" /></p>
+                </div>
+                <p><input type="button" class="testItem1" value="testItem1-3ClassButton" /></p>
+                <p><input type="button" class="testItem1" value="testItem1-4ClassButton" /></p>
+        </div>
+        <div id="tree" class="trees"></div>
+    </div>
+    <script src="../js/contextAndTree.js"></script>
+</body>
